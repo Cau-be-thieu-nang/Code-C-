@@ -28,36 +28,31 @@ char c[3]={'C','A','B'};
 signed main()
 {
     fast_IO();
-    int t=10;
-    while(t--)
+    int n,x;
+    cin>>n>>x;
+    if(x==1)
     {
-        int n,x;
-        cin>>n>>x;
-        if(x==1)
-        {
-            cout<<"A";
-            continue;
-        }
-        if(x==2)
-        {
-            cout<<"B";
-            continue;
-        }
-        int mini=(x-3+1)/4+((x-3+1)%4!=0),maxi=(n-x+1)/2+((n-x+1)%2!=0);
-        if(mini<maxi)
-        {
-            int mod=(x-3+1)%4;
-            if(!mod)mod=4;
-            int pos=2+6*(mini-1)+mod+2;
-            cout<<c[pos%3];
-        }
-        else
-        {
-            int mod=(n-x+1)%2;
-            if(!mod)mod=2;
-            int pos=2+6*(maxi-1)+mod;
-            cout<<c[pos%3];
-        }
+        cout<<"A";
+        return 0;
     }
-
+    if(x==2)
+    {
+        cout<<"B";
+        return 0;
+    }
+    int mini=(x-3+1)/4+((x-3+1)%4!=0),maxi=(n-x+1)/2+((n-x+1)%2!=0);
+    if(mini<maxi)
+    {
+        int mod=(x-3+1)%4;
+        if(!mod)mod=4;
+        int pos=2+6*(mini-1)+mod+2;
+        cout<<c[pos%3];
+    }
+    else
+    {
+        int mod=(n-x+1)%2;
+        if(!mod)mod=2;
+        int pos=2+6*(maxi-1)+mod;
+        cout<<c[pos%3];
+    }
 }
